@@ -52,7 +52,7 @@
             </thead>
             <tbody>
               <% var stt = 1; %> <% novel.forEach(function(tr){ %> <%
-              if(tr.TaiKhoan._id == session.MaNguoiDung) { %>
+              if(tr.TaiKhoan?._id == session.MaNguoiDung) { %>
               <tr>
                 <td class="align-middle"><%= stt++ %></td>
                 <td class="align-middle small"><%= tr.TheLoai.tentheloai %></td>
