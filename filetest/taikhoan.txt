@@ -1,8 +1,0 @@
-========================THÔNG TIN TÀI KHOẢN ĐĂNG NHẬP========================
-*Tài khoản vai trò "admin"
--Tên đăng nhập: admin
--Mật khẩu: 1
-
-*Tài khoản với vai trò user
--Tên đăng nhập: user
--Mật khẩu: 0
