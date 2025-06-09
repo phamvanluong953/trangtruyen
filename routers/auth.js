@@ -79,12 +79,29 @@ router.post("/dangky", upload.single("HinhAnh"), async (req, res) => {
     await TaiKhoan.create(data);
 
     const htmlContent = `
-      <h3>Xin chào ${HoVaTen},</h3>
-      <p>Bạn đã đăng ký tài khoản thành công trên hệ thống.</p>
-      <p><b>Tên đăng nhập:</b> ${TenDangNhap}</p>
-      <p><b>Mật khẩu:</b> ${MatKhau}</p>
-      <p>Vui lòng giữ bí mật thông tin này.</p>
-    `;
+  <div style="font-family: Arial, sans-serif; color: #333;">
+    <h3>👋 Xin chào ${HoVaTen},</h3>
+    <p>Bạn đã đăng ký tài khoản thành công trên hệ thống KICKBACK.</p>
+    
+    <p>
+      <span style="font-size: 16px;"><strong>Tên đăng nhập:</strong> ${TenDangNhap}</span><br/>
+      <span style="font-size: 16px;"><strong>Mật khẩu:</strong> ${MatKhau}</span>
+    </p>
+
+    <p>📌 Vui lòng giữ bí mật thông tin này và không chia sẻ với người khác.</p>
+
+    <p>
+      🌐 Bạn có thể truy cập hệ thống tại: <br/>
+      <a href="https://trangtruyenkickback.onrender.com" target="_blank"
+         style="color: #e2852f; text-decoration: none; font-weight: bold;">
+        👉 https://trangtruyenkickback.onrender.com
+      </a>
+    </p>
+
+    <hr style="border: none; border-top: 1px solid #ddd;" />
+    <p style="font-size: 13px; color: #888;">📮 Đây là email tự động, vui lòng không trả lời.</p>
+  </div>
+`;
 
     await sendMail(Email, "Thông tin tài khoản đăng nhập", htmlContent);
 
