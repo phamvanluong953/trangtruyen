@@ -1,34 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title><%= title %></title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-</head>
-
-<body>
-	<div class="container">
-		<%- include('includes/navbar') %>
-		
-		<div class="card mt-3">
-			<div class="card-header"><%= title %></div>
-			<div class="card-body">
-				<% if(typeof successMsg !== "undefined" && successMsg) { %>
-					<div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
-						<%= successMsg %>
-						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-					</div>
-				<% } %>
-			</div>
-		</div>
-		
-		<%- include('includes/footer') %>
-	</div>
-	
-	<%- include('includes/javascript') %>
-</body>
-
-</html>
+<footer style="background-color: rgb(245, 181, 122); color: black;" class="pt-4 mt-5">
+  <div class="container text-center">
+    <h5 class="fw-bold">KICKBACK - Nền tảng đọc truyện trực tuyến</h5>
+    <p>📍 123 Đường Công Nghệ, TP. TechCity | ☎️ (0123) 456 789</p>
+    <p>
+      📧 <a href="mailto:contact@kickback.vn" style="color: black; text-decoration: none;" 
+            onmouseover="this.style.color='#8B4513'" 
+            onmouseout="this.style.color='black'">contact@kickback.vn</a>
+      | 🌐 <a href="https://trangtruyenkickback.onrender.com" target="_blank" style="color: black; text-decoration: none;" 
+            onmouseover="this.style.color='#8B4513'" 
+            onmouseout="this.style.color='black'">www.kickback.vn</a>
+    </p>
+    <hr style="background-color: white;" />
+    <div class="pb-3">
+      <small>&copy; 2025 <strong>KICKBACK</strong>. Mọi quyền được bảo lưu.</small>
+    </div>
+  </div>
+</footer>
