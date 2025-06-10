@@ -7,7 +7,7 @@ const multer = require("multer");
 const fs = require("fs");
 const path = require("path");
 
-// Tạo thư mục images nếu chưa tồn tại
+// Tạo thư mục images nếu chưa có
 const imagesDir = path.join(__dirname, "../public/images");
 if (!fs.existsSync(imagesDir)) {
   fs.mkdirSync(imagesDir);
@@ -44,15 +44,15 @@ function isAdmin(req, res, next) {
   return res.redirect("/error?message=Bạn không có quyền truy cập");
 }
 
-// GET: Danh sách tất cả chương
 // GET: Danh sách tất cả chương, ưu tiên chương chưa duyệt lên đầu
 router.get("/", async (req, res) => {
   try {
     // Sắp xếp theo KiemDuyet tăng dần: 0 (chưa duyệt) sẽ lên trước 1 (đã duyệt)
+    // Có thể thêm thứ tự theo thời gian để mới nhất lên trên
     const ch = await Chuong.find()
       .populate("Novel")
       .populate("TaiKhoan")
-      .sort({ KiemDuyet: 1, createdAt: -1 }) // Có thể thêm thứ tự theo thời gian để mới nhất lên trên
+      .sort({ KiemDuyet: 1, createdAt: -1 }) 
       .exec();
 
     const theloai = await TheLoai.find();
@@ -188,6 +188,7 @@ router.post("/xoa/:id", async (req, res) => {
   }
 });
 
+//GET Duyet chuong
 router.get("/duyet/:id", isAdmin, async (req, res) => {
   try {
     const chuong = await Chuong.findById(req.params.id)
