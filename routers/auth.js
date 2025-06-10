@@ -39,7 +39,11 @@ router.post("/dangky", upload.single("HinhAnh"), async (req, res) => {
       errors.Email = "Email phải có định dạng và kết thúc bằng @gmail.com.";
     if (!HoVaTen) errors.HoVaTen = "Họ và tên là bắt buộc.";
     if (!TenDangNhap) errors.TenDangNhap = "Tên đăng nhập là bắt buộc.";
-    if (!MatKhau) errors.MatKhau = "Mật khẩu là bắt buộc.";
+    if (!MatKhau) {
+      errors.MatKhau = "Mật khẩu là bắt buộc.";
+    } else if (MatKhau.length < 6) {
+      errors.MatKhau = "Mật khẩu phải có ít nhất 6 ký tự.";
+    }
     if (MatKhau !== XacNhanMatKhau)
       errors.XacNhanMatKhau = "Mật khẩu và xác nhận mật khẩu không khớp.";
 
