@@ -59,8 +59,18 @@
 									<% } %>
 								</td>
 								<% if(ch.KiemDuyet == 1) { %>
-									<td class="align-middle text-center"><a href="/chuong/sua/<%= ch._id %>"><i class="bi bi-pencil-square"></i></a></td>
-									<td class="align-middle text-center"><a href="/chuong/xoa/<%= ch._id %>" onclick="return confirm('Bạn có muốn xóa bài viết <%= ch.TieuDe %> không?');"><i class="bi bi-trash text-danger"></i></a></td>
+									<td class="align-middle text-center">
+										<a href="/chuong/sua/<%= ch._id %>">
+											<i class="bi bi-pencil-square"></i>
+										</a>
+									</td>
+									<td class="align-middle text-center">
+										<form action="/chuong/xoa/<%= ch._id %>" method="POST" onsubmit="return confirm('Bạn có muốn xóa bài viết <%= ch.TieuDe %> không?');" style="display:inline;">
+											<button type="submit" class="btn btn-link p-0 m-0" style="border: none;">
+												<i class="bi bi-trash text-danger"></i>
+											</button>
+										</form>
+									</td>
 								<% } else { %>
 									<td></td>
 									<td></td>
@@ -100,7 +110,6 @@
 		});
 	}
 </script>
-
 
 	<%- include('includes/javascript') %>
 </body>
