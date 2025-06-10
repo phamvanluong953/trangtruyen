@@ -184,7 +184,7 @@ router.get("/dangxuat", async (req, res) => {
   }
 });
 
-//GET
+//GET Quên MK
 router.get("/quenmatkhau", (req, res) => {
   res.render("quenmatkhau", {
     title: "Quên Mật Khẩu",
@@ -193,6 +193,7 @@ router.get("/quenmatkhau", (req, res) => {
   });
 });
 
+//POST Quên MK
 router.post("/quenmatkhau", async (req, res) => {
   const email = req.body.Email;
   try {
@@ -236,6 +237,7 @@ router.post("/quenmatkhau", async (req, res) => {
   }
 });
 
+//GET Đăng xuất
 router.get("/dangxuat", (req, res) => {
   req.session.destroy((err) => {
     if (err) {
